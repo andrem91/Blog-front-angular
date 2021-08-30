@@ -32,6 +32,11 @@ export class CadastrarComponent implements OnInit {
   }
 
   cadastrar() {
+
+    if(this.user.nome.length < 3) {
+      alert('Preencha o campo nome com pelo menos 3 caracteres')
+    }
+
     this.user.tipo = this.tipoUsuario;
 
     if(this.user.senha != this.confirmarSenha) {
