@@ -24,9 +24,10 @@ export class PostagemDeleteComponent implements OnInit {
 
   ngOnInit() {
 
-    window.scroll(0,0);
+    window.scroll(0, 0);
 
-    if(environment.token == '') {
+    if (environment.token == '') {
+      this.alertas.showAlertInfo("Sua seção expirou. Faça o login novamente.");
       this.router.navigate(['/entrar']);
     }
 
@@ -41,7 +42,7 @@ export class PostagemDeleteComponent implements OnInit {
   }
 
   apagar() {
-    this.postagemService.deletePostagem(this.idPost).subscribe(()=> {
+    this.postagemService.deletePostagem(this.idPost).subscribe(() => {
       this.alertas.showAlertSuccess("Postagem apagada com sucesso!");
       this.router.navigate(['/inicio']);
     })

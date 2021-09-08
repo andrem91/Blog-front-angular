@@ -28,6 +28,7 @@ export class UserEditComponent implements OnInit {
     window.scroll(0, 0);
 
     if (environment.token == '') {
+      this.alertas.showAlertInfo("Sua seção expirou. Faça o login novamente.");
       this.router.navigate(['/entrar']);
     }
 

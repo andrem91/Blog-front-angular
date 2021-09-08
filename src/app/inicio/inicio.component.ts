@@ -35,13 +35,13 @@ export class InicioComponent implements OnInit {
     private router: Router,
     private postagemService: PostagemService,
     private temaService: TemaService,
-    private authService: AuthService,
+    public authService: AuthService,
     private alertas: AlertasService
   ) { }
 
   ngOnInit() {
     if (environment.token == '') {
-      alert("Sua seção expirou. Faça o login novamente.");
+      this.alertas.showAlertInfo("Sua seção expirou. Faça o login novamente.");
       this.router.navigate(['/entrar']);
     }
     this.getAllTemas();
